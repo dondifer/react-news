@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 let dataArray = [];
-localStorage.setItem("reserveData", JSON.stringify(dataArray));
+localStorage.setItem("formData", JSON.stringify(dataArray));
 
 const Form = () => {
   let navigate = useNavigate();
@@ -40,7 +40,7 @@ const Form = () => {
     newData.push(data);
     localStorage.setItem("formData", JSON.stringify(newData));
     setTimeout(() => {
-      navigate("/home");
+      navigate("/list");
     }, 300);
     console.log(`sending data… ${data.name} ${data.date} ${data.phoneNumber}`);
   };
