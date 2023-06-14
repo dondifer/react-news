@@ -6,9 +6,11 @@ localStorage.setItem("reserveData", JSON.stringify(dataArray));
 const Form = () => {
   let navigate = useNavigate();
   const [data, setData] = useState({
-    name: "",
+    title: "",
+    subtitle: "",
+    new: "",
     date: "",
-    phoneNumber: "",
+    author: "",
   });
   const [btnDisabled, setBtnDisabled] = useState(true);
 
@@ -17,9 +19,9 @@ const Form = () => {
   const handleInputChange = (event) => {
     console.log(event.target.name);
     console.log(event.target.value);
-    if (data.name.length + 1 < 3) {
+    console.log(data.title.length);
+    if (data.title.length + 1 < 3) {
       setMessage("Name must be at least 3 characters");
-
       setBtnDisabled(true);
     } else {
       setMessage(null);
@@ -49,11 +51,24 @@ const Form = () => {
         <form className="react-forms" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="name"
+            placeholder="title"
             onChange={handleInputChange}
-            name="name"
+            name="title"
           />
           <span className="error-msg">{message}</span>
+          <input
+            type="text"
+            placeholder="subtitle"
+            onChange={handleInputChange}
+            name="subtitle"
+          />
+          <textarea
+            name="new"
+            placeholder="escribe tu movida..."
+            rows="10"
+            cols="70"
+          ></textarea>
+
           <input
             type="datetime-local"
             placeholder="date"
@@ -61,10 +76,10 @@ const Form = () => {
             name="date"
           />
           <input
-            type="tel"
-            placeholder="phone"
+            type="text"
+            placeholder="author"
             onChange={handleInputChange}
-            name="phoneNumber"
+            name="author"
           />
           <button disabled={btnDisabled} type="submit">
             Enviar
