@@ -12,6 +12,8 @@ const List = () => {
       <div key={index}>
         <h3>{el.title}</h3>
         <span>{el.abstract}</span>
+        <p>Date: {el.created_date}</p>
+        <p>Author: {el.byline}</p>
       </div>
     );
   });
