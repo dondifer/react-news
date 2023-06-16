@@ -50,6 +50,11 @@ a:hover {
   color: #adadae;
 }
 
+.max-heigth-list {
+  height: 600px;
+  overflow: auto;
+}
+
 .res-links {
   color: rgb(99, 189, 91);
   &:hover {

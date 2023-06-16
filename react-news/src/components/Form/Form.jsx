@@ -64,7 +64,7 @@ const Form = () => {
           />
           <textarea
             name="new"
-            placeholder="escribe tu movida..."
+            placeholder="write your stuff..."
             rows="10"
             cols="70"
           ></textarea>
