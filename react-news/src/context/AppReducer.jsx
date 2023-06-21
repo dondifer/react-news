@@ -6,6 +6,12 @@ const news = (state, action) => {
         news: action.payload,
       };
 
+    case "CHANGE_THEME":
+      return {
+        ...state,
+        isDarkThemeEnabled: action.payload,
+      };
+
     default:
       return state;
   }

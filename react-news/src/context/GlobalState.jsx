@@ -6,6 +6,7 @@ import { API_KEY } from "../../config/key";
 
 const initialState = {
   news: [],
+  isDarkThemeEnabled: false,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -22,11 +23,23 @@ export const GlobalProvider = ({ children }) => {
       payload: response.data.results,
     });
   };
+
+  const changeTheme = () => {
+    state.isDarkThemeEnabled = !state.isDarkThemeEnabled;
+    console.log("state.isDarkThemeEnabled", state.isDarkThemeEnabled);
+    dispatch({
+      type: "CHANGE_THEME",
+      payload: state.isDarkThemeEnabled,
+    });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
         news: state.news,
         getNews,
+        changeTheme,
+        isDarkThemeEnabled: state.isDarkThemeEnabled,
       }}
     >
       {children}

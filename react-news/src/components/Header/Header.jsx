@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { GlobalContext } from "../../context/GlobalState";
 
 const Header = (props) => {
   const navigate = useNavigate();
+  // eslint-disable-next-line no-unused-vars
+  const { news, getNews, changeTheme } = useContext(GlobalContext);
 
   useEffect(() => {
     navigate("/");
@@ -19,6 +22,7 @@ const Header = (props) => {
             </li>
           ))}
         </ul>
+        <button onClick={changeTheme}>Change Theme</button>
       </nav>
     </div>
   );
